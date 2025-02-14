@@ -46,9 +46,6 @@
       ]
     }
   },
-  "activationEvents": [
-    "onStartupFinished"
-  ],
   "scripts": {
     "lint": "eslint .",
     "pretest": "yarn run lint",

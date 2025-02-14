@@ -2,6 +2,7 @@ const { message } = require("../common/message")
 const { execSync } = require("child_process")
 
 const preCheck = () => {
+  message.start(`Checking the environment`)
   // node
   const nodeVersion = execSync("node -v").toString().trim()
   if (parseInt(nodeVersion.split(".")?.[0].replace("v", "")) < 20) {
@@ -9,6 +10,7 @@ const preCheck = () => {
     return false
   }
   execSync("npm install -g @typespec/compiler")
+  return true
 }
 
 module.exports = {

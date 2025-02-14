@@ -91,7 +91,7 @@ function activate(context) {
     Feature_1,
     Feature_2
   )
-  vscode.commands.executeCommand("typespec-automation.Create-1")
+  // vscode.commands.executeCommand("typespec-automation.Create-1")
 }
 
 function deactivate() {}

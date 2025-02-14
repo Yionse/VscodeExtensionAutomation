@@ -11,9 +11,13 @@ const { sleep } = require("../common/timer")
 const { keyboard, Key } = require("@nut-tree/nut-js")
 
 async function createOne() {
-  message.start("Start")
-  message.start("Checking the environment")
-  // preCheck()
+  message.start(`Start`)
+  await sleep(3)
+  if (!preCheck()) {
+    testCase1Result()
+    return
+  }
+  await sleep(3)
 
   // Specify the current working directory
   vscode.commands.executeCommand(
