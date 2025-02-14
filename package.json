@@ -1,0 +1,68 @@
+{
+  "publisher": "v-zhangtianc",
+  "name": "typespec-automation",
+  "displayName": "typespec automation",
+  "description": "TypeSpec Project Automation",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:typespec-automation.helloWorld"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "TypeSpecAutomation",
+          "title": "TypeSpec Auto",
+          "icon": "icons/extension-logo.png"
+        }
+      ]
+    },
+    "views": {
+      "TypeSpecAutomation": [
+        {
+          "id": "create-typespec-project-test",
+          "name": "create-typespec-project-test"
+        },
+        {
+          "id": "generate-from-typespec-test",
+          "name": "generate-from-typespec-test"
+        },
+        {
+          "id": "import-typespec-from-openapi3-test",
+          "name": "import-typespec-from-openapi3-test"
+        },
+        {
+          "id": "typespec-extension-basic-features-test",
+          "name": "typespec-extension-basic-features-test"
+        }
+      ]
+    }
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "yarn run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.97.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.19.0"
+  },
+  "dependencies": {
+    "@nut-tree/nut-js": "^3.1.2"
+  }
+}
