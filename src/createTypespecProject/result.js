@@ -14,13 +14,13 @@ const createTypespecResult = () => {
         item.file !== "package-lock.json" && item.file !== "node_modules"
     )
     if (currentDirectoryList.length === expectedResults.length) {
-      message.resSuccess("Test case 1: Success")
+      message.resSuccess("CreateTypespecProject-NonBrandedTemplates: Success")
     } else {
-      message.resError("Test case 1: Failed")
+      message.resError("CreateTypespecProject-NonBrandedTemplates: Failed")
     }
   } catch (error) {
     message.info(error.message)
-    message.resError("Test case 1: Failed")
+    message.resError("CreateTypespecProject-NonBrandedTemplates: Failed")
   }
 }
 

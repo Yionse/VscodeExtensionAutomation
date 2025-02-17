@@ -11,7 +11,7 @@ const { sleep } = require("../common/timer")
 const { keyboard, Key } = require("@nut-tree/nut-js")
 
 async function createNonBrandedTemplates() {
-  message.start(`Start`)
+  message.start(`Start-CreateTypespecProject-NonBrandedTemplates`)
   await sleep(3)
   if (!preCheck()) {
     createTypespecResult()

@@ -17,14 +17,8 @@ const message = {
     outputChannel.appendLine(`${tab ? "\t" : ""}✅ ${msg}`),
   error: (msg) => outputChannel.appendLine(`❌ ${msg}`),
   warning: (msg) => outputChannel.appendLine(`⚠️ ${msg}`),
-  resSuccess: (msg) =>
-    outputChannel.appendLine(
-      `✅✅✅✅✅✅✅✅✅✅ ${msg} ✅✅✅✅✅✅✅✅✅✅`
-    ),
-  resError: (msg) =>
-    outputChannel.appendLine(
-      `❌❌❌❌❌❌❌❌❌❌ ${msg} ❌❌❌❌❌❌❌❌❌❌❌`
-    )
+  resSuccess: (msg) => outputChannel.appendLine(`✅✅✅✅${msg} ✅✅✅✅✅`),
+  resError: (msg) => outputChannel.appendLine(`❌❌❌❌ ${msg} ❌❌❌❌`)
 }
 
 const showInformation = (msg) => {
