@@ -1,7 +1,7 @@
 const { getCurrentDirectoryList } = require("../common/getCurrentDirectoryList")
 const { message } = require("../common/message")
 
-const testCase1Result = () => {
+const createTypespecResult = () => {
   const expectedResults = [
     ".gitignore",
     "main.tsp",
@@ -25,5 +25,5 @@ const testCase1Result = () => {
 }
 
 module.exports = {
-  testCase1Result
+  createTypespecResult
 }
