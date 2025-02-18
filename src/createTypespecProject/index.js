@@ -9,9 +9,12 @@ const { selectItem } = require("../common/selectItem")
 const vscode = require("vscode")
 const { sleep } = require("../common/timer")
 const { keyboard, Key } = require("@nut-tree/nut-js")
+const { log } = require("../common/log")
 
-async function createNonBrandedTemplates() {
+
+async function createNonBrandedTemplates(templateName = "Empty") {
   message.start(`Start-CreateTypespecProject-NonBrandedTemplates`)
+  log(`\n\nStart-CreateTypespecProject-NonBrandedTemplates:    ${templateName}`)
   await sleep(3)
   if (!preCheck()) {
     createTypespecResult()
@@ -25,6 +28,7 @@ async function createNonBrandedTemplates() {
     vscode.Uri.file(`D:\\test`)
   )
   message.start("Creating a new TypeSpec project...")
+  log("Creating a new TypeSpec project...")
   // Enter information to create a project
   vscode.commands.executeCommand("workbench.action.quickOpen")
   await sleep(3)
@@ -56,6 +60,7 @@ async function createNonBrandedTemplates() {
   selectItem()
   await sleep(3)
   message.info("The generated directories and files are as follows:")
+  log("The generated directories and files are as follows:")
   showCurrentDirectoryList()
   createTypespecResult()
 }
