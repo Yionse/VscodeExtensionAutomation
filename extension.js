@@ -7,7 +7,7 @@ const {
 } = require("./src/TreeDataProviders")
 const { showInformation } = require("./src/common/message")
 const {
-  createNonBrandedTemplates
+  createNonBrandedTemplatesBatch
 } = require("./src/createTypespecProject/index")
 
 /**
@@ -39,7 +39,7 @@ function activate(context) {
 
   const Create_1 = vscode.commands.registerCommand(
     "typespec-automation.Create-1",
-    () => createNonBrandedTemplates()
+    () => createNonBrandedTemplatesBatch()
   )
   const Create_2 = vscode.commands.registerCommand(
     "typespec-automation.Create-2",

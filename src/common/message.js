@@ -13,12 +13,8 @@ const message = {
   file: (msg, tab = false) =>
     outputChannel.appendLine(`${tab ? "\t" : ""}📄 ${msg}`),
   wait: (msg) => outputChannel.appendLine(`⏳ ${msg}`),
-  success: (msg, tab = false) =>
-    outputChannel.appendLine(`${tab ? "\t" : ""}✅ ${msg}`),
-  error: (msg) => outputChannel.appendLine(`❌ ${msg}`),
-  warning: (msg) => outputChannel.appendLine(`⚠️ ${msg}`),
-  resSuccess: (msg) => outputChannel.appendLine(`✅✅✅✅${msg} ✅✅✅✅✅`),
-  resError: (msg) => outputChannel.appendLine(`❌❌❌❌ ${msg} ❌❌❌❌`)
+  resSuccess: (msg) => outputChannel.appendLine(`✅✅✅ ${msg} ✅✅✅\n\n`),
+  resError: (msg) => outputChannel.appendLine(`❌❌❌ ${msg} ❌❌❌\n\n`)
 }
 
 const showInformation = (msg) => {

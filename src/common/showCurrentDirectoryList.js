@@ -1,5 +1,4 @@
 const { getScriptRoot } = require("./getScriptRoot")
-
 const vscode = require("vscode")
 const { execSync } = require("child_process")
 const { message } = require("./message")
