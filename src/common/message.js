@@ -1,24 +1,20 @@
+const { log } = require("./log")
 const vscode = require("vscode")
+const moment = require("moment")
 
 const outputChannel = vscode.window.createOutputChannel("My Plugin Output")
 outputChannel.show(true)
 
-const message = {
-  outputChannel: () => outputChannel,
-  start: (msg) => outputChannel.appendLine(`🚀 ${msg}`),
-  info: (msg, tab = false) =>
-    outputChannel.appendLine(`${tab ? "\t" : ""}📢 ${msg}`),
-  directory: (msg, tab = false) =>
-    outputChannel.appendLine(`${tab ? "\t" : ""}📂 ${msg}`),
-  file: (msg, tab = false) =>
-    outputChannel.appendLine(`${tab ? "\t" : ""}📄 ${msg}`),
-  wait: (msg) => outputChannel.appendLine(`⏳ ${msg}`),
-  resSuccess: (msg) => outputChannel.appendLine(`✅✅✅ ${msg} ✅✅✅\n\n`),
-  resError: (msg) => outputChannel.appendLine(`❌❌❌ ${msg} ❌❌❌\n\n`)
+const outputChannelSys = ({ type = "info", msg, tab = false }) => {
+  const timestamp = moment().format("YYYY-MM-DD HH:mm:ss")
+  outputChannel.appendLine(
+    `${timestamp} [${type.toUpperCase()}] ` + (tab ? "\t" : "") + msg
+  )
+  log(msg, type)
 }
 
 const showInformation = (msg) => {
   vscode.window.showInformationMessage(msg)
 }
 
-module.exports = { message, showInformation }
+module.exports = { outputChannelSys, showInformation }

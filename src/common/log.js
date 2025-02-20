@@ -1,17 +1,27 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs")
+const path = require("path")
+const moment = require("moment")
 
-function log(message, level = 'info', logPath = "D:/") {
-    
-    const filePath = path.join(logPath, 'log.txt');
-    const logMessage = `${new Date().toISOString()} [${level.toUpperCase()}] - ${message}\n`;
-    
-    fs.appendFile(filePath, logMessage, { flag: 'a' }, (err) => {
-        if (err) {
-            console.error('Error writing to log file:', err);
-        }
-    });
+let fileName = "typespec-automation.log"
+
+function setFileName(newFileName) {
+  fileName = newFileName
 }
 
+function log(message, level = "info") {
+  const logDir = "D:/typespecAutomationLogs/"
+  if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir, { recursive: true })
+  }
 
-module.exports = { log }
+  const filePath = path.join(logDir, fileName)
+  let logMessage = `${moment().format(
+    "YYYY-MM-DD HH:mm:ss"
+  )} [${level.toUpperCase()}] - ${message}\n`
+  if (level === "sys") {
+    logMessage = message
+  }
+  fs.appendFileSync(filePath, logMessage)
+}
+
+module.exports = { log, setFileName }

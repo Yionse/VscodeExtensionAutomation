@@ -1,6 +1,5 @@
 const { getCurrentDirectoryList } = require("../common/getCurrentDirectoryList")
-const { message } = require("../common/message")
-const { log } = require("../common/log")
+const { outputChannelSys } = require("../common/message")
 
 const createTypespecResult = (isAddIgnore) => {
   const expectedResults = ["main.tsp", "package.json", "tspconfig.yaml"]
@@ -15,17 +14,18 @@ const createTypespecResult = (isAddIgnore) => {
         item.file !== "testDirectory"
     )
     if (currentDirectoryList.length === expectedResults.length) {
-      message.resSuccess("CreateTypespecProject-NonBrandedTemplates: Success")
-      log("CreateTypespecProject-NonBrandedTemplates: Success")
+      outputChannelSys({
+        type: "success",
+        msg: "CreateTypespecProject-NonBrandedTemplates: Success\n"
+      })
     } else {
-      message.resError("CreateTypespecProject-NonBrandedTemplates: Failed")
-      log("CreateTypespecProject-NonBrandedTemplates: Failed", "error")
+      throw new Error()
     }
   } catch (error) {
-    message.info(error.message)
-    log(error.message, "error")
-    message.resError("CreateTypespecProject-NonBrandedTemplates: Failed")
-    log("CreateTypespecProject-NonBrandedTemplates: Failed", "error")
+    outputChannelSys({
+      type: "error",
+      msg: "CreateTypespecProject-NonBrandedTemplates: Failed\n"
+    })
   }
 }
 

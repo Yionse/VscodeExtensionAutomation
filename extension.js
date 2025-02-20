@@ -47,6 +47,12 @@ function activate(context) {
       showInformation("Stay tuned")
     }
   )
+  const Create_All = vscode.commands.registerCommand(
+    "typespec-automation.Create-All",
+    () => {
+      showInformation("Stay tuned")
+    }
+  )
   const Generate_1 = vscode.commands.registerCommand(
     "typespec-automation.Generate-1",
     () => {
@@ -86,6 +92,7 @@ function activate(context) {
   context.subscriptions.push(
     Create_1,
     Create_2,
+    Create_All,
     Generate_1,
     Generate_2,
     Import_1,

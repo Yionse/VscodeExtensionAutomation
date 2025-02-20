@@ -27,8 +27,9 @@ class BaseTreeProvider {
 class CreateTypespecProject extends BaseTreeProvider {
   constructor() {
     super([
-      new MyTreeItem("TestCase-1", "Create-1"),
-      new MyTreeItem("TestCase-2", "Create-2")
+      new MyTreeItem("Create-non-branded-templates", "Create-1"),
+      new MyTreeItem("Create-azure-data/Mgmt-templates", "Create-2"),
+      new MyTreeItem("Create-all", "Create-All")
     ])
   }
 }

@@ -1,3 +1,4 @@
+const { setFileName, log } = require("../common/log")
 const { execSync } = require("child_process")
 const {
   preCheck,
@@ -9,18 +10,20 @@ const { createTypespecResult } = require("./result")
 const {
   showCurrentDirectoryList
 } = require("../common/showCurrentDirectoryList")
-const { message, showInformation } = require("../common/message")
+const { outputChannelSys, showInformation } = require("../common/message")
 const { selectItem } = require("../common/selectItem")
 const vscode = require("vscode")
 const { sleep, countDown } = require("../common/timer")
 const { keyboard, Key } = require("@nut-tree/nut-js")
-const { log } = require("../common/log")
+const moment = require("moment")
 
 async function createNonBrandedTemplates({ name, config, description }) {
-  message.start(`Start-${name}`)
-  message.start(`Description-${JSON.stringify(description)}`)
-  log(`\n\nStart-${name}`)
-  log(`\n\nDescription-${JSON.stringify(description)}`)
+  outputChannelSys({
+    msg: `Start-${name}`
+  })
+  outputChannelSys({
+    msg: `Description-${JSON.stringify(description)}`
+  })
 
   try {
     execSync("rimraf ./", {
@@ -35,8 +38,9 @@ async function createNonBrandedTemplates({ name, config, description }) {
   // Create the directory end
 
   // Create the project start
-  message.start("Creating a new TypeSpec project...")
-  log("Creating a new TypeSpec project...")
+  outputChannelSys({
+    msg: "Creating a new TypeSpec project..."
+  })
   // Enter information to create a project
   vscode.commands.executeCommand("workbench.action.quickOpen")
   await sleep(1)
@@ -73,10 +77,16 @@ async function createNonBrandedTemplates({ name, config, description }) {
   await selectItem(config.addGitignore ? "Yes" : "No")
   await sleep(1)
   await node_modulesInstalled()
-  message.info("The generated directories and files are as follows:")
-  log("The generated directories and files are as follows:")
+  outputChannelSys({
+    msg: "The generated directories and files are as follows:"
+  })
   showCurrentDirectoryList()
-  createTypespecResult(config.addGitignore)
+  try {
+    createTypespecResult(config.addGitignore)
+    return true
+  } catch (error) {
+    return false
+  }
 }
 
 /**
@@ -93,14 +103,7 @@ async function createNonBrandedTemplates({ name, config, description }) {
  * }
  */
 async function createNonBrandedTemplatesBatch() {
-  // Check the environment start
-  // await sleep(3)
-  // if (!preCheck()) {
-  //   createTypespecResult()
-  //   return
-  // }
-  // await sleep(3)
-  // Check the environment end
+  const startTime = +new Date()
   const configArrayList = [
     {
       name: "CreateTypespecProject-NonBrandedTemplates-Batch1",
@@ -135,9 +138,43 @@ async function createNonBrandedTemplatesBatch() {
       description: "The root directory is empty, Do not add ignore files"
     }
   ]
+  let successCount = 0
+  let failCount = 0
+  const fileName = `log-createNonBrandedTemplates-${+new Date()}.txt`
+  setFileName(fileName)
+  log(
+    `====================================================================\nProjectName: createNonBrandedTemplatesBatch\nStartTime: ${moment().format(
+      "YYYY-MM-DD HH:mm:ss"
+    )}\nTotalCase: ${
+      configArrayList.length
+    }\n====================================================================\n`,
+    "sys"
+  )
+  // Check the environment start
+  // await sleep(3)
+  // if (!preCheck()) {
+  //   createTypespecResult()
+  //   return
+  // }
+  // await sleep(3)
+  // Check the environment end
+
   for (const config of configArrayList) {
-    await createNonBrandedTemplates(config)
+    const isSuccess = await createNonBrandedTemplates(config)
+    if (isSuccess) {
+      successCount++
+    } else {
+      failCount++
+    }
   }
+  log(
+    `====================================================================\nSuccessCount: ${successCount}\nFailCount: ${failCount}\nEndTime: ${moment().format(
+      "YYYY-MM-DD HH:mm:ss"
+    )}\nTotalTime: ${
+      (+new Date() - startTime) / 1000
+    }s\n====================================================================`,
+    "sys"
+  )
 }
 
 module.exports = {

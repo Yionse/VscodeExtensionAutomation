@@ -1,8 +1,7 @@
 const { getScriptRoot } = require("./getScriptRoot")
 const vscode = require("vscode")
 const { execSync } = require("child_process")
-const { message } = require("./message")
-const { log } = require("./log")
+const { outputChannelSys } = require("./message")
 
 function showCurrentDirectoryList() {
   const scriptPath = getScriptRoot("getRootDirectoryFileList.js")
@@ -13,19 +12,19 @@ function showCurrentDirectoryList() {
     })
     if (stdout) {
       const arr = JSON.parse(stdout)
-      arr.forEach((item) => {
-        if (item.type === "file") {
-          message.file(item.file, true)
-          log("file: " + item.file, "info")
-        } else {
-          message.directory(item.file, true)
-          log("dict: "+item.file, "info")
-        }
-      })
+      arr.forEach((item, index) =>
+        outputChannelSys({
+          type: "file",
+          msg: (index + 1 === arr.length ? "└─── " : "├─── ") + item.file,
+          tab: true
+        })
+      )
     }
   } catch (error) {
-    message.error(`Execution error: ${error.message}`)
-    log(`Execution error: ${error.message}`, "error")
+    outputChannelSys({
+      type: "error",
+      msg: `Execution error: ${error.message}`
+    })
   }
 }
 
