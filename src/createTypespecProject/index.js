@@ -1,19 +1,16 @@
+const { expectText } = require("../common/expectText")
 const { setFileName, log } = require("../common/log")
 const { execSync } = require("child_process")
-const {
-  preCheck,
-  typespecCompilerInstalled,
-  node_modulesInstalled
-} = require("./pre")
+const { node_modulesInstalled } = require("./pre")
 const { createDir } = require("../common/createDir")
 const { createTypespecResult } = require("./result")
 const {
   showCurrentDirectoryList
 } = require("../common/showCurrentDirectoryList")
-const { outputChannelSys, showInformation } = require("../common/message")
+const { outputChannelSys } = require("../common/message")
 const { selectItem } = require("../common/selectItem")
 const vscode = require("vscode")
-const { sleep, countDown } = require("../common/timer")
+const { sleep } = require("../common/timer")
 const { keyboard, Key } = require("@nut-tree/nut-js")
 const moment = require("moment")
 
@@ -43,46 +40,45 @@ async function createNonBrandedTemplates({ name, config, description }) {
   })
   // Enter information to create a project
   vscode.commands.executeCommand("workbench.action.quickOpen")
-  await sleep(1)
+  await expectText("The top pop-up box does not pop up", "files")
+
   vscode.env.clipboard
     .writeText(">TypeSpec: Create TypeSpec Project")
     .then(() => {
       vscode.commands.executeCommand("editor.action.clipboardPasteAction")
     })
-  await sleep(1)
+  await expectText("", "typespec")
   await keyboard.pressKey(Key.Enter)
-  await sleep(8)
+  await expectText("The folder selection box does not pop up", "folder")
   await keyboard.pressKey(Key.Enter)
-  await sleep(1)
   if (!config.emptyFolder) {
+    await expectText(
+      "Unselect whether to continue using the current folder as the project root directory",
+      "empty"
+    )
     await selectItem()
-    await sleep(1)
   }
-  await sleep(8)
+  await expectText("Please Select a template Error", "template")
   // Create the project end
 
   // The first template is selected by default
   await selectItem()
-  await sleep(1)
 
   // Enter the project name
   vscode.env.clipboard.writeText("AutomationProjectName").then(() => {
     vscode.commands.executeCommand("editor.action.clipboardPasteAction")
   })
-  await sleep(1)
   await keyboard.pressKey(Key.Enter)
-  await sleep(1)
 
   // Choose whether to generate a .gitignore file
   await selectItem(config.addGitignore ? "Yes" : "No")
-  await sleep(1)
   await node_modulesInstalled()
   outputChannelSys({
     msg: "The generated directories and files are as follows:"
   })
   showCurrentDirectoryList()
   try {
-    createTypespecResult(config.addGitignore)
+    createTypespecResult(config.addGitignore, name)
     return true
   } catch (error) {
     return false
@@ -106,7 +102,7 @@ async function createNonBrandedTemplatesBatch() {
   const startTime = +new Date()
   const configArrayList = [
     {
-      name: "CreateTypespecProject-NonBrandedTemplates-Batch1",
+      name: "CreateTypespecProject-NonBrandedTemplates-EmptyProject-Case1",
       config: {
         emptyFolder: true,
         addGitignore: true
@@ -114,7 +110,7 @@ async function createNonBrandedTemplatesBatch() {
       description: "The root directory is empty, Add ignore files"
     },
     {
-      name: "CreateTypespecProject-NonBrandedTemplates-Batch2",
+      name: "CreateTypespecProject-NonBrandedTemplates-EmptyProject-Case2",
       config: {
         emptyFolder: false,
         addGitignore: false
@@ -122,7 +118,7 @@ async function createNonBrandedTemplatesBatch() {
       description: "The root directory is not empty, Do not add ignore files"
     },
     {
-      name: "CreateTypespecProject-NonBrandedTemplates-Batch3",
+      name: "CreateTypespecProject-NonBrandedTemplates-EmptyProject-Case3",
       config: {
         emptyFolder: false,
         addGitignore: true
@@ -130,7 +126,7 @@ async function createNonBrandedTemplatesBatch() {
       description: "The root directory is not empty, Add ignore files"
     },
     {
-      name: "CreateTypespecProject-NonBrandedTemplates-Batch4",
+      name: "CreateTypespecProject-NonBrandedTemplates-EmptyProject-Case4",
       config: {
         emptyFolder: true,
         addGitignore: false

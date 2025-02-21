@@ -1,7 +1,7 @@
 const { getCurrentDirectoryList } = require("../common/getCurrentDirectoryList")
 const { outputChannelSys } = require("../common/message")
 
-const createTypespecResult = (isAddIgnore) => {
+const createTypespecResult = (isAddIgnore, name) => {
   const expectedResults = ["main.tsp", "package.json", "tspconfig.yaml"]
   if (isAddIgnore) {
     expectedResults.push(".gitignore")
@@ -16,7 +16,7 @@ const createTypespecResult = (isAddIgnore) => {
     if (currentDirectoryList.length === expectedResults.length) {
       outputChannelSys({
         type: "success",
-        msg: "CreateTypespecProject-NonBrandedTemplates: Success\n"
+        msg: `${name}: Success\n`
       })
     } else {
       throw new Error()
@@ -24,7 +24,7 @@ const createTypespecResult = (isAddIgnore) => {
   } catch (error) {
     outputChannelSys({
       type: "error",
-      msg: "CreateTypespecProject-NonBrandedTemplates: Failed\n"
+      msg: `${name}: Failed\n`
     })
   }
 }
