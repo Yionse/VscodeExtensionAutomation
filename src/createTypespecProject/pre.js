@@ -24,13 +24,20 @@ const typespecCompilerInstalled = async (isInstall) => {
   }
 }
 
-const node_modulesInstalled = async () => {
+const node_modulesInstalled = async (isNodeModules) => {
   while (true) {
     await sleep(1)
-    const nodeModules = JSON.parse(getCurrentDirectoryList()).filter(
-      (item) => item.file == "package-lock.json" || item.file === "node_modules"
-    )
-    if (nodeModules.length === 2) {
+    const fileList = JSON.parse(getCurrentDirectoryList()) || []
+    const specifyingFiles = isNodeModules
+      ? fileList.filter(
+          (item) =>
+            item.file == "package-lock.json" || item.file === "node_modules"
+        )
+      : fileList.filter(
+          (item) => item.file == "examples" || item.file === "main.tsp"
+        )
+    if (specifyingFiles.length === 2) {
+      if (!isNodeModules) await sleep(2)
       break
     }
   }

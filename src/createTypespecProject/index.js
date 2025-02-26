@@ -1,6 +1,7 @@
+const { configArrayList, templateList } = require("./config")
+const { deleteFile } = require("../common/deleteFile")
 const { expectText } = require("../common/expectText")
 const { setFileName, log } = require("../common/log")
-const { execSync } = require("child_process")
 const { node_modulesInstalled } = require("./pre")
 const { createDir } = require("../common/createDir")
 const { createTypespecResult } = require("./result")
@@ -10,78 +11,94 @@ const {
 const { outputChannelSys } = require("../common/message")
 const { selectItem } = require("../common/selectItem")
 const vscode = require("vscode")
-const { sleep } = require("../common/timer")
 const { keyboard, Key } = require("@nut-tree/nut-js")
 const moment = require("moment")
 
-async function createNonBrandedTemplates({ name, config, description }) {
-  outputChannelSys({
-    msg: `Start-${name}`
-  })
-  outputChannelSys({
-    msg: `Description-${JSON.stringify(description)}`
-  })
-
+async function createTemplatesOperation({
+  name,
+  config,
+  description,
+  template
+}) {
   try {
-    execSync("rimraf ./", {
-      cwd: vscode.workspace.workspaceFolders[0].uri.fsPath
+    outputChannelSys({
+      msg: `Start-${name}`
     })
-  } catch (error) {}
+    outputChannelSys({
+      msg: `Description-${JSON.stringify(description)}`
+    })
 
-  // Create the directory start
-  if (!config.emptyFolder) {
-    createDir("testDirectory")
-  }
-  // Create the directory end
+    if (!config.emptyFolder) {
+      createDir("testDirectory")
+    }
 
-  // Create the project start
-  outputChannelSys({
-    msg: "Creating a new TypeSpec project..."
-  })
-  // Enter information to create a project
-  vscode.commands.executeCommand("workbench.action.quickOpen")
-  await expectText("The top pop-up box does not pop up", "files")
+    outputChannelSys({
+      msg: "Creating a new TypeSpec project..."
+    })
+    vscode.commands.executeCommand("workbench.action.quickOpen")
+    await expectText("Failed to open the top input box", "files")
 
-  vscode.env.clipboard
-    .writeText(">TypeSpec: Create TypeSpec Project")
-    .then(() => {
+    vscode.env.clipboard
+      .writeText(">TypeSpec: Create TypeSpec Project")
+      .then(() => {
+        vscode.commands.executeCommand("editor.action.clipboardPasteAction")
+      })
+    await keyboard.pressKey(Key.Enter)
+    await expectText("Failed to select folder", "folder")
+    await keyboard.pressKey(Key.Enter)
+
+    // Specific steps for some specific templates
+    if (!config.emptyFolder) {
+      await expectText(
+        "The current root directory is not empty, and the next step cannot be selected",
+        "empty"
+      )
+      await selectItem()
+    }
+    // Specific steps for some specific templates
+    await expectText("No template selected", "template")
+
+    await selectItem(template)
+    vscode.env.clipboard.writeText("AutomationProjectName").then(() => {
       vscode.commands.executeCommand("editor.action.clipboardPasteAction")
     })
-  await expectText("", "typespec")
-  await keyboard.pressKey(Key.Enter)
-  await expectText("The folder selection box does not pop up", "folder")
-  await keyboard.pressKey(Key.Enter)
-  if (!config.emptyFolder) {
-    await expectText(
-      "Unselect whether to continue using the current folder as the project root directory",
-      "empty"
-    )
-    await selectItem()
-  }
-  await expectText("Please Select a template Error", "template")
-  // Create the project end
+    await keyboard.pressKey(Key.Enter)
 
-  // The first template is selected by default
-  await selectItem()
+    await selectItem(config.addGitignore ? "Yes" : "No")
 
-  // Enter the project name
-  vscode.env.clipboard.writeText("AutomationProjectName").then(() => {
-    vscode.commands.executeCommand("editor.action.clipboardPasteAction")
-  })
-  await keyboard.pressKey(Key.Enter)
+    // Specific steps for some specific templates
+    if (template === "Generic REST API" || template.includes("(stand alone)")) {
+      await selectItem()
+      await selectItem()
+    }
+    if (template.includes("(rest-api-spec repo)")) {
+      await selectItem()
+    }
+    // Specific steps for some specific templates
 
-  // Choose whether to generate a .gitignore file
-  await selectItem(config.addGitignore ? "Yes" : "No")
-  await node_modulesInstalled()
-  outputChannelSys({
-    msg: "The generated directories and files are as follows:"
-  })
-  showCurrentDirectoryList()
-  try {
-    createTypespecResult(config.addGitignore, name)
+    await node_modulesInstalled(!template.includes("(rest-api-spec repo)"))
+    outputChannelSys({
+      msg: "The generated directories and files are as follows:"
+    })
+    showCurrentDirectoryList()
+    createTypespecResult({
+      name,
+      template,
+      isAddGitignore: config.addGitignore
+    })
     return true
   } catch (error) {
+    outputChannelSys({
+      type: "error",
+      msg: error.message
+    })
+    outputChannelSys({
+      type: "error",
+      msg: `${name}: Failed\n`
+    })
     return false
+  } finally {
+    deleteFile()
   }
 }
 
@@ -98,54 +115,7 @@ async function createNonBrandedTemplates({ name, config, description }) {
  *    description: "Project description"
  * }
  */
-async function createNonBrandedTemplatesBatch() {
-  const startTime = +new Date()
-  const configArrayList = [
-    {
-      name: "CreateTypespecProject-NonBrandedTemplates-EmptyProject-Case1",
-      config: {
-        emptyFolder: true,
-        addGitignore: true
-      },
-      description: "The root directory is empty, Add ignore files"
-    },
-    {
-      name: "CreateTypespecProject-NonBrandedTemplates-EmptyProject-Case2",
-      config: {
-        emptyFolder: false,
-        addGitignore: false
-      },
-      description: "The root directory is not empty, Do not add ignore files"
-    },
-    {
-      name: "CreateTypespecProject-NonBrandedTemplates-EmptyProject-Case3",
-      config: {
-        emptyFolder: false,
-        addGitignore: true
-      },
-      description: "The root directory is not empty, Add ignore files"
-    },
-    {
-      name: "CreateTypespecProject-NonBrandedTemplates-EmptyProject-Case4",
-      config: {
-        emptyFolder: true,
-        addGitignore: false
-      },
-      description: "The root directory is empty, Do not add ignore files"
-    }
-  ]
-  let successCount = 0
-  let failCount = 0
-  const fileName = `log-createNonBrandedTemplates-${+new Date()}.txt`
-  setFileName(fileName)
-  log(
-    `====================================================================\nProjectName: createNonBrandedTemplatesBatch\nStartTime: ${moment().format(
-      "YYYY-MM-DD HH:mm:ss"
-    )}\nTotalCase: ${
-      configArrayList.length
-    }\n====================================================================\n`,
-    "sys"
-  )
+async function createTemplates(name) {
   // Check the environment start
   // await sleep(3)
   // if (!preCheck()) {
@@ -154,15 +124,38 @@ async function createNonBrandedTemplatesBatch() {
   // }
   // await sleep(3)
   // Check the environment end
+  const startTime = +new Date()
+  let successCount = 0
+  let failCount = 0
+  const fileName = `log-create${name}Templates-${+new Date()}.txt`
+  setFileName(fileName)
+  log(
+    `====================================================================\nProjectName: create${name}Templates\nStartTime: ${moment().format(
+      "YYYY-MM-DD HH:mm:ss"
+    )}\nTotalCase: ${
+      configArrayList.length *
+      templateList.filter((item) => item.type === name)?.length
+    }\n====================================================================\n\n`,
+    "sys"
+  )
 
-  for (const config of configArrayList) {
-    const isSuccess = await createNonBrandedTemplates(config)
-    if (isSuccess) {
-      successCount++
-    } else {
-      failCount++
+  for (const template of templateList
+    .filter((item) => item.type === name)
+    ?.map((item) => item.templateName)) {
+    for (const [index, config] of configArrayList.entries()) {
+      const isSuccess = await createTemplatesOperation({
+        ...config,
+        name: `${config.name}-${template}-Case${index + 1}`,
+        template
+      })
+      if (isSuccess) {
+        successCount++
+      } else {
+        failCount++
+      }
     }
   }
+
   log(
     `====================================================================\nSuccessCount: ${successCount}\nFailCount: ${failCount}\nEndTime: ${moment().format(
       "YYYY-MM-DD HH:mm:ss"
@@ -174,5 +167,5 @@ async function createNonBrandedTemplatesBatch() {
 }
 
 module.exports = {
-  createNonBrandedTemplatesBatch
+  createTemplates
 }

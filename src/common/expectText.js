@@ -1,4 +1,3 @@
-const { log } = require("./log")
 const { sleep } = require("./timer")
 const screenshot = require("screenshot-desktop")
 const sharp = require("sharp")
@@ -36,8 +35,8 @@ async function expectText(errMsg, str, position = "top") {
       .extract({
         left: x >= targetDisplay.width ? x - targetDisplay.width : x,
         top: topScreen,
-        width: width - 20,
-        height: 60
+        width: Math.floor(width / 2),
+        height: 100
       })
       .toBuffer()
     const filePath = str + +new Date() + ".png"
@@ -55,7 +54,7 @@ async function expectText(errMsg, str, position = "top") {
     }
   }
   if (!result) {
-    log(errMsg, "error")
+    throw new Error(errMsg)
   }
 }
 

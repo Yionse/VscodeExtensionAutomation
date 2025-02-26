@@ -21,10 +21,7 @@ function showCurrentDirectoryList() {
       )
     }
   } catch (error) {
-    outputChannelSys({
-      type: "error",
-      msg: `Execution error: ${error.message}`
-    })
+    throw new Error(`Execution error: ${error.message}`)
   }
 }
 

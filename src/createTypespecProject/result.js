@@ -1,11 +1,16 @@
+const { templateList } = require("./config")
 const { getCurrentDirectoryList } = require("../common/getCurrentDirectoryList")
 const { outputChannelSys } = require("../common/message")
 
-const createTypespecResult = (isAddIgnore, name) => {
-  const expectedResults = ["main.tsp", "package.json", "tspconfig.yaml"]
-  if (isAddIgnore) {
+const createTypespecResult = ({ isAddGitignore, name, template }) => {
+  let expectedResults = templateList
+    .find((item) => item.templateName === template)
+    ?.resultList.map((item) => item)
+
+  if (isAddGitignore) {
     expectedResults.push(".gitignore")
   }
+
   try {
     const currentDirectoryList = JSON.parse(getCurrentDirectoryList()).filter(
       (item) =>
@@ -19,13 +24,10 @@ const createTypespecResult = (isAddIgnore, name) => {
         msg: `${name}: Success\n`
       })
     } else {
-      throw new Error()
+      throw new Error(`Number of files does not match`)
     }
   } catch (error) {
-    outputChannelSys({
-      type: "error",
-      msg: `${name}: Failed\n`
-    })
+    throw new Error(error.message)
   }
 }
 

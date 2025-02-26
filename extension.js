@@ -6,9 +6,7 @@ const {
   TypespecExtensionBasicFeatures
 } = require("./src/TreeDataProviders")
 const { showInformation } = require("./src/common/message")
-const {
-  createNonBrandedTemplatesBatch
-} = require("./src/createTypespecProject/index")
+const { createTemplates } = require("./src/createTypespecProject/index")
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -39,13 +37,11 @@ function activate(context) {
 
   const Create_1 = vscode.commands.registerCommand(
     "typespec-automation.Create-1",
-    () => createNonBrandedTemplatesBatch()
+    () => createTemplates("NonBranded")
   )
   const Create_2 = vscode.commands.registerCommand(
     "typespec-automation.Create-2",
-    () => {
-      showInformation("Stay tuned")
-    }
+    () => createTemplates("AzurePlan")
   )
   const Create_All = vscode.commands.registerCommand(
     "typespec-automation.Create-All",
