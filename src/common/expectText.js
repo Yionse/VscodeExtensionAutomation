@@ -35,7 +35,7 @@ async function expectText(errMsg, str, position = "top") {
       .extract({
         left: x >= targetDisplay.width ? x - targetDisplay.width : x,
         top: topScreen,
-        width: Math.floor(width / 2),
+        width: width - 20,
         height: 100
       })
       .toBuffer()

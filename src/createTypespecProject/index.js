@@ -126,7 +126,7 @@ async function createTemplates(name) {
   // Check the environment end
   const startTime = +new Date()
   let successCount = 0
-  let failCount = 0
+  let errorCount = 0
   const fileName = `log-create${name}Templates-${+new Date()}.txt`
   setFileName(fileName)
   log(
@@ -151,13 +151,13 @@ async function createTemplates(name) {
       if (isSuccess) {
         successCount++
       } else {
-        failCount++
+        errorCount++
       }
     }
   }
 
   log(
-    `====================================================================\nSuccessCount: ${successCount}\nFailCount: ${failCount}\nEndTime: ${moment().format(
+    `====================================================================\nSuccessCount: ${successCount}\nErrorCount: ${errorCount}\nEndTime: ${moment().format(
       "YYYY-MM-DD HH:mm:ss"
     )}\nTotalTime: ${
       (+new Date() - startTime) / 1000
