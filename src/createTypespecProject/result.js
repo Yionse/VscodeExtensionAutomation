@@ -1,8 +1,18 @@
 const { templateList } = require("./config")
 const { getCurrentDirectoryList } = require("../common/getCurrentDirectoryList")
 const { outputChannelSys } = require("../common/message")
+const { node_modulesInstalled } = require("./pre")
+const {
+  showCurrentDirectoryList
+} = require("../common/showCurrentDirectoryList")
 
-const createTypespecResult = ({ isAddGitignore, name, template }) => {
+const createTypespecResult = async ({ isAddGitignore, name, template }) => {
+  await node_modulesInstalled(!template.includes("(rest-api-spec repo)"))
+  outputChannelSys({
+    msg: "The generated directories and files are as follows:"
+  })
+  showCurrentDirectoryList()
+
   let expectedResults = templateList
     .find((item) => item.templateName === template)
     ?.resultList.map((item) => item)

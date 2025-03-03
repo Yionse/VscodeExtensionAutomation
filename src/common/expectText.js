@@ -1,10 +1,11 @@
+const { findKeyByErrorMsg } = require("../createTypespecProject/exceptList")
 const { sleep } = require("./timer")
 const screenshot = require("screenshot-desktop")
 const sharp = require("sharp")
 const Tesseract = require("tesseract.js")
 const fs = require("fs")
 
-async function expectText(errMsg, str, position = "top") {
+async function expectText(errMsg, position = "top") {
   const { activeWindow } = await import("active-win")
   const win = await activeWindow()
   const displays = await screenshot.listDisplays()
@@ -39,7 +40,7 @@ async function expectText(errMsg, str, position = "top") {
         height: 100
       })
       .toBuffer()
-    const filePath = str + +new Date() + ".png"
+    const filePath = findKeyByErrorMsg(errMsg) + +new Date() + ".png"
     fs.writeFileSync("D:/typespecAutomationLogs/" + filePath, cropped)
 
     const {
@@ -47,7 +48,9 @@ async function expectText(errMsg, str, position = "top") {
     } = await Tesseract.recognize(cropped, "eng")
 
     const currentText = text.replace(/\s+/g, "").toLowerCase()
-    const targetText = str.replace(/\s+/g, "").toLowerCase()
+    const targetText = findKeyByErrorMsg(errMsg)
+      .replace(/\s+/g, "")
+      .toLowerCase()
     if (currentText.includes(targetText)) {
       result = true
       break

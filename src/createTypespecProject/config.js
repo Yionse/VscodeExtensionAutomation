@@ -74,7 +74,7 @@ const configArrayList = [
       emptyFolder: true,
       addGitignore: true
     },
-    description: "The root directory is empty, Add ignore files"
+    description: "The root directory is empty, add ignore files"
   },
   {
     name: "CreateTypespecProject",
@@ -82,7 +82,7 @@ const configArrayList = [
       emptyFolder: false,
       addGitignore: false
     },
-    description: "The root directory is not empty, Do not add ignore files"
+    description: "The root directory is not empty, do not add ignore files"
   },
   {
     name: "CreateTypespecProject",
@@ -90,7 +90,7 @@ const configArrayList = [
       emptyFolder: false,
       addGitignore: true
     },
-    description: "The root directory is not empty, Add ignore files"
+    description: "The root directory is not empty, add ignore files"
   },
   {
     name: "CreateTypespecProject",
@@ -98,7 +98,7 @@ const configArrayList = [
       emptyFolder: true,
       addGitignore: false
     },
-    description: "The root directory is empty, Do not add ignore files"
+    description: "The root directory is empty, do not add ignore files"
   }
 ]
 

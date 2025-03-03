@@ -1,65 +1,53 @@
-# typespec-automation README
+# TypeSpec Extension Automation
 
-打包测试！
+## Description
 
-## Features
+This project is a vscode plug-in project based on JavaScript. It must be run by vscode. During the plug-in running process, **it must get the focus throughout the process**. Then the plug-in will automatically perform a series of automated operations and generate a log file.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Prerequisites
 
-For example if there is an image subfolder under your extension project workspace:
+- [Nodejs V20](https://nodejs.org/en/download)
+- [Visual Code](https://code.visualstudio.com/)
 
-\!\[feature X\]\(images/feature-x.png\)
+## Quickstart
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+You need to install a third-party package. If the installation fails, you need to check the network or use another image. Here, `yarn` is used for installation. Please install `yarn` globally first.then Press `F5`.
 
-## Requirements
+A new vscode window is automatically opened. The plug-in is installed by default, and the subsequent steps will be performed in the new vscode window.
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Log
 
-## Extension Settings
+The current log is automatically generated. Each time the automation program is run, it will be automatically saved in the local `D:\typespecAutomationLogs`. The format is as follows:
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+```
+====================================================================
+ProjectName: createNonBrandedTemplates
+StartTime: 2025-03-03 10:20:46
+TotalCase: 16
+====================================================================
 
-For example:
+2025-03-03 10:20:46 [INFO] - Start-CreateTypespecProject-Empty Project-Case1
+2025-03-03 10:20:46 [INFO] - Description-"The root directory is empty, Add ignore files"
+2025-03-03 10:20:46 [INFO] - Creating a new TypeSpec project...
+2025-03-03 10:21:40 [INFO] - The generated directories and files are as follows:
+2025-03-03 10:21:40 [FILE] - ├─── .gitignore
+2025-03-03 10:21:40 [FILE] - ├─── main.tsp
+2025-03-03 10:21:40 [FILE] - ├─── node_modules
+2025-03-03 10:21:40 [FILE] - ├─── package-lock.json
+2025-03-03 10:21:40 [FILE] - ├─── package.json
+2025-03-03 10:21:40 [FILE] - └─── tspconfig.yaml
+2025-03-03 10:21:40 [SUCCESS] - CreateTypespecProject-Empty Project-Case1: Success
 
-This extension contributes the following settings:
+......
 
-- `myExtension.enable`: Enable/disable this extension.
-- `myExtension.thing`: Set to `blah` to do something.
+====================================================================
+SuccessCount: 16
+ErrorCount: 0
+EndTime: 2025-03-03 10:31:12
+TotalTime: 625.265s
+====================================================================
+```
 
-## Known Issues
+## Contributing
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-- Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-- Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-- Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-- [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit https://cla.microsoft.com.

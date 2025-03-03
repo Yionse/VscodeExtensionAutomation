@@ -1,17 +1,14 @@
+const {
+  triggerCreateProject,
+  selectTemplate,
+  typingName,
+  specialStepsAzure
+} = require("./operations")
 const { configArrayList, templateList } = require("./config")
 const { deleteFile } = require("../common/deleteFile")
-const { expectText } = require("../common/expectText")
 const { setFileName, log } = require("../common/log")
-const { node_modulesInstalled } = require("./pre")
-const { createDir } = require("../common/createDir")
 const { createTypespecResult } = require("./result")
-const {
-  showCurrentDirectoryList
-} = require("../common/showCurrentDirectoryList")
 const { outputChannelSys } = require("../common/message")
-const { selectItem } = require("../common/selectItem")
-const vscode = require("vscode")
-const { keyboard, Key } = require("@nut-tree/nut-js")
 const moment = require("moment")
 
 async function createTemplatesOperation({
@@ -21,67 +18,19 @@ async function createTemplatesOperation({
   template
 }) {
   try {
-    outputChannelSys({
-      msg: `Start-${name}`
+    await triggerCreateProject({
+      name,
+      description,
+      isEmptyFolder: config.emptyFolder
     })
-    outputChannelSys({
-      msg: `Description-${JSON.stringify(description)}`
-    })
 
-    if (!config.emptyFolder) {
-      createDir("testDirectory")
-    }
+    await selectTemplate({ template, isEmptyFolder: config.emptyFolder })
 
-    outputChannelSys({
-      msg: "Creating a new TypeSpec project..."
-    })
-    vscode.commands.executeCommand("workbench.action.quickOpen")
-    await expectText("Failed to open the top input box", "files")
+    await typingName(config.addGitignore)
 
-    vscode.env.clipboard
-      .writeText(">TypeSpec: Create TypeSpec Project")
-      .then(() => {
-        vscode.commands.executeCommand("editor.action.clipboardPasteAction")
-      })
-    await keyboard.pressKey(Key.Enter)
-    await expectText("Failed to select folder", "folder")
-    await keyboard.pressKey(Key.Enter)
+    await specialStepsAzure(template)
 
-    // Specific steps for some specific templates
-    if (!config.emptyFolder) {
-      await expectText(
-        "The current root directory is not empty, and the next step cannot be selected",
-        "empty"
-      )
-      await selectItem()
-    }
-    // Specific steps for some specific templates
-    await expectText("No template selected", "template")
-
-    await selectItem(template)
-    vscode.env.clipboard.writeText("AutomationProjectName").then(() => {
-      vscode.commands.executeCommand("editor.action.clipboardPasteAction")
-    })
-    await keyboard.pressKey(Key.Enter)
-
-    await selectItem(config.addGitignore ? "Yes" : "No")
-
-    // Specific steps for some specific templates
-    if (template === "Generic REST API" || template.includes("(stand alone)")) {
-      await selectItem()
-      await selectItem()
-    }
-    if (template.includes("(rest-api-spec repo)")) {
-      await selectItem()
-    }
-    // Specific steps for some specific templates
-
-    await node_modulesInstalled(!template.includes("(rest-api-spec repo)"))
-    outputChannelSys({
-      msg: "The generated directories and files are as follows:"
-    })
-    showCurrentDirectoryList()
-    createTypespecResult({
+    await createTypespecResult({
       name,
       template,
       isAddGitignore: config.addGitignore
