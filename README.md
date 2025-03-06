@@ -32,20 +32,20 @@ The project entry file is `extension.js`, which is the entry file of the entire 
 
 1. Clone this repo and open it with Visual Studio.
 
-```git
+   ```git
    git clone https://github.com/Yionse/VscodeExtensionAutomation.git
-```
+   ```
 
 2. Install dependencies using `yarn`.
 
-```
+   ```
    npm i -g yarn
    yarn
-```
+   ```
 
 3. Press `F5` to run the plugin and wait for the plugin to start a new vscode window.
 4. In the new window, click the `tab` bar on the left and select `typespec auto`. Then click the required `item` to perform automated testing.
-   ![readme](readme.png)
+   ![](readme.png)
 
 ## Log
 
