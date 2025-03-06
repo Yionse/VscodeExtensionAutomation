@@ -3,6 +3,7 @@
 ## Description
 
 This project is a vscode plug-in project based on JavaScript. It must be run by vscode. During the plug-in running process, **it must get the focus throughout the process**. Then the plug-in will automatically perform a series of automated operations and generate a log file.
+For information about manual testing, please refer to [https://github.com/xiaohua899/typespec/tree/patch-1/packages/typespec-vscode/test/manual](https://github.com/xiaohua899/typespec/tree/patch-1/packages/typespec-vscode/test/manual).
 
 ## Prerequisites
 
