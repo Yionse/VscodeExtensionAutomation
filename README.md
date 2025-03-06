@@ -33,14 +33,14 @@ The project entry file is `extension.js`, which is the entry file of the entire 
 1. Clone this repo and open it with Visual Studio.
 
 ```git
-git clone https://github.com/Yionse/VscodeExtensionAutomation.git
+   git clone https://github.com/Yionse/VscodeExtensionAutomation.git
 ```
 
 2. Install dependencies using `yarn`.
 
 ```
-npm i -g yarn
-yarn
+   npm i -g yarn
+   yarn
 ```
 
 3. Press `F5` to run the plugin and wait for the plugin to start a new vscode window.
@@ -49,46 +49,7 @@ yarn
 
 ## Log
 
-The current log is automatically generated. Each time the automation program is run, it will be automatically saved in the local `D:\typespecAutomationLogs`. The format is as follows:
-
-```
-====================================================================
-ProjectName: createNonBrandedTemplates
-StartTime: 2025-03-03 10:20:46
-TotalCase: 16
-SuccessCount: 15
-FailCount: 1
-EndTime: 2025-03-03 10:31:12
-TotalTime: 625.265s
-====================================================================
-
-====================================================================
-Success Cases:
-
-2025-03-03 10:20:46 [INFO] - Start-CreateTypespecProject-Empty Project-Case1
-2025-03-03 10:20:46 [INFO] - Description-"The root directory is empty, Add ignore files"
-2025-03-03 10:20:46 [INFO] - Creating a new TypeSpec project...
-2025-03-03 10:21:40 [INFO] - The generated directories and files are as follows:
-2025-03-03 10:21:40 [FILE] - ├─── .gitignore
-2025-03-03 10:21:40 [FILE] - ├─── main.tsp
-2025-03-03 10:21:40 [FILE] - ├─── node_modules
-2025-03-03 10:21:40 [FILE] - ├─── package-lock.json
-2025-03-03 10:21:40 [FILE] - ├─── package.json
-2025-03-03 10:21:40 [FILE] - └─── tspconfig.yaml
-2025-03-03 10:21:40 [SUCCESS] - CreateTypespecProject-Empty Project-Case1: Success
-====================================================================
-
-====================================================================
-Fail Cases:
-
-2025-03-03 10:30:14 [INFO] - Start-CreateTypespecProject-TypeSpec Emitter-Case4
-2025-03-03 10:30:14 [INFO] - Description-"The root directory is empty, Do not add ignore files"
-2025-03-03 10:30:14 [INFO] - Creating a new TypeSpec project...
-2025-03-03 10:30:39 [ERROR] - No template selected
-2025-03-03 10:30:39 [ERROR] - CreateTypespecProject-TypeSpec Emitter-Case4: Fail
-
-====================================================================
-```
+The current log is automatically generated. Each time the automation program is run, it will be automatically saved in the local `D:\typespecAutomationLogs`.
 
 ## Contributing
 
