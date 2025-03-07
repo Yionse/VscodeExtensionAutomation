@@ -11,7 +11,9 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:typespec-automation.helloWorld"
+    "onCommand:typespec-automation.Create-1",
+    "onCommand:typespec-automation.Create-2",
+    "onCommand:typespec-automation.Create-All"
   ],
   "repository": {
     "type": "git",
