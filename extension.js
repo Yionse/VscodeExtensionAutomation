@@ -1,11 +1,10 @@
+const { showInformation } = require("./src/common/log")
 const vscode = require("vscode")
 const {
   CreateTypespecProject,
   ImportTypespecFromOpenai3,
-  GenerateFromTypespec,
-  TypespecExtensionBasicFeatures
+  GenerateFromTypespec
 } = require("./src/TreeDataProviders")
-const { showInformation } = require("./src/common/message")
 const { createTemplates } = require("./src/createTypespecProject/index")
 
 /**
@@ -16,7 +15,6 @@ function activate(context) {
   const createProvider = new CreateTypespecProject()
   const importProvider = new ImportTypespecFromOpenai3()
   const generateProvider = new GenerateFromTypespec()
-  const featuresProvider = new TypespecExtensionBasicFeatures()
 
   vscode.window.registerTreeDataProvider(
     "create-typespec-project-test",
@@ -30,10 +28,6 @@ function activate(context) {
     "import-typespec-from-openapi3-test",
     generateProvider
   )
-  vscode.window.registerTreeDataProvider(
-    "typespec-extension-basic-features-test",
-    featuresProvider
-  )
 
   const Create_1 = vscode.commands.registerCommand(
     "typespec-automation.Create-1",
@@ -45,9 +39,7 @@ function activate(context) {
   )
   const Create_All = vscode.commands.registerCommand(
     "typespec-automation.Create-All",
-    () => {
-      showInformation("Stay tuned")
-    }
+    () => createTemplates()
   )
   const Generate_1 = vscode.commands.registerCommand(
     "typespec-automation.Generate-1",
@@ -73,18 +65,6 @@ function activate(context) {
       showInformation("Stay tuned")
     }
   )
-  const Feature_1 = vscode.commands.registerCommand(
-    "typespec-automation.Feature-1",
-    () => {
-      showInformation("Stay tuned")
-    }
-  )
-  const Feature_2 = vscode.commands.registerCommand(
-    "typespec-automation.Feature-2",
-    () => {
-      showInformation("Stay tuned")
-    }
-  )
   context.subscriptions.push(
     Create_1,
     Create_2,
@@ -92,9 +72,7 @@ function activate(context) {
     Generate_1,
     Generate_2,
     Import_1,
-    Import_2,
-    Feature_1,
-    Feature_2
+    Import_2
   )
   // vscode.commands.executeCommand("typespec-automation.Create-1")
 }

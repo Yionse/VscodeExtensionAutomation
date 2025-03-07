@@ -1,14 +1,14 @@
 const { getCurrentDirectoryList } = require("../common/getCurrentDirectoryList")
 const { sleep } = require("../common/timer")
-const { outputChannelSys } = require("../common/message")
+const { logger } = require("../common/log")
 const { execSync } = require("child_process")
 
 const preCheck = () => {
-  outputChannelSys({ type: "info", msg: `Checking the environment` })
+  logger.log({ type: "info", msg: `Checking the environment` })
   // node
   const nodeVersion = execSync("node -v").toString().trim()
   if (parseInt(nodeVersion.split(".")?.[0].replace("v", "")) < 20) {
-    outputChannelSys({ type: "error", msg: "Node version is too low" })
+    logger.log({ type: "error", msg: "Node version is too low" })
     return false
   }
   return true
@@ -37,7 +37,7 @@ const node_modulesInstalled = async (isNodeModules) => {
           (item) => item.file == "examples" || item.file === "main.tsp"
         )
     if (specifyingFiles.length === 2) {
-      if (!isNodeModules) await sleep(2)
+      await sleep(3)
       break
     }
   }

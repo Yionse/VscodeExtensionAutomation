@@ -1,0 +1,445 @@
+====================================================================
+ProjectName: CreateTypespecProject
+StartTime: 2025-03-07 16:30:25
+TotalCase: 32
+SuccessCount: 29
+FailCount: 3
+EndTime: 2025-03-07 16:45:57
+TotalTime: 932s
+====================================================================
+
+====================================================================
+Success Cases:
+
+2025-03-07 16:30:26 [INFO] Start-CreateTypespecProject-Empty Project-emptyFolderAndAddGitignore
+2025-03-07 16:30:26 [INFO] Description-"The root directory is empty, add ignore files"
+2025-03-07 16:30:26 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:30:52 [INFO] The generated directories and files are as follows:
+2025-03-07 16:30:52 [FILE] ├─── .gitignore
+2025-03-07 16:30:52 [FILE] ├─── main.tsp
+2025-03-07 16:30:52 [FILE] ├─── node_modules
+2025-03-07 16:30:52 [FILE] ├─── package-lock.json
+2025-03-07 16:30:52 [FILE] ├─── package.json
+2025-03-07 16:30:52 [FILE] └─── tspconfig.yaml
+2025-03-07 16:30:52 [SUCCESS] CreateTypespecProject-Empty Project-emptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:30:53 [INFO] Start-CreateTypespecProject-Empty Project-notEmptyFolderAndNotAddGitignore
+2025-03-07 16:30:53 [INFO] Description-"The root directory is not empty, do not add ignore files"
+2025-03-07 16:30:53 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:31:19 [INFO] The generated directories and files are as follows:
+2025-03-07 16:31:19 [FILE] ├─── main.tsp
+2025-03-07 16:31:19 [FILE] ├─── node_modules
+2025-03-07 16:31:19 [FILE] ├─── package-lock.json
+2025-03-07 16:31:19 [FILE] ├─── package.json
+2025-03-07 16:31:19 [FILE] ├─── testDirectory
+2025-03-07 16:31:19 [FILE] └─── tspconfig.yaml
+2025-03-07 16:31:19 [SUCCESS] CreateTypespecProject-Empty Project-notEmptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:31:20 [INFO] Start-CreateTypespecProject-Empty Project-notEmptyFolderAndAddGitignore
+2025-03-07 16:31:20 [INFO] Description-"The root directory is not empty, add ignore files"
+2025-03-07 16:31:20 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:31:45 [INFO] The generated directories and files are as follows:
+2025-03-07 16:31:45 [FILE] ├─── .gitignore
+2025-03-07 16:31:45 [FILE] ├─── main.tsp
+2025-03-07 16:31:45 [FILE] ├─── node_modules
+2025-03-07 16:31:45 [FILE] ├─── package-lock.json
+2025-03-07 16:31:45 [FILE] ├─── package.json
+2025-03-07 16:31:45 [FILE] ├─── testDirectory
+2025-03-07 16:31:45 [FILE] └─── tspconfig.yaml
+2025-03-07 16:31:45 [SUCCESS] CreateTypespecProject-Empty Project-notEmptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:31:47 [INFO] Start-CreateTypespecProject-Empty Project-emptyFolderAndNotAddGitignore
+2025-03-07 16:31:47 [INFO] Description-"The root directory is empty, do not add ignore files"
+2025-03-07 16:31:47 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:32:11 [INFO] The generated directories and files are as follows:
+2025-03-07 16:32:11 [FILE] ├─── main.tsp
+2025-03-07 16:32:11 [FILE] ├─── node_modules
+2025-03-07 16:32:11 [FILE] ├─── package-lock.json
+2025-03-07 16:32:11 [FILE] ├─── package.json
+2025-03-07 16:32:11 [FILE] └─── tspconfig.yaml
+2025-03-07 16:32:11 [SUCCESS] CreateTypespecProject-Empty Project-emptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:32:12 [INFO] Start-CreateTypespecProject-Generic REST API-emptyFolderAndAddGitignore
+2025-03-07 16:32:12 [INFO] Description-"The root directory is empty, add ignore files"
+2025-03-07 16:32:12 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:32:44 [INFO] The generated directories and files are as follows:
+2025-03-07 16:32:44 [FILE] ├─── .gitignore
+2025-03-07 16:32:44 [FILE] ├─── main.tsp
+2025-03-07 16:32:44 [FILE] ├─── node_modules
+2025-03-07 16:32:44 [FILE] ├─── package-lock.json
+2025-03-07 16:32:44 [FILE] ├─── package.json
+2025-03-07 16:32:44 [FILE] └─── tspconfig.yaml
+2025-03-07 16:32:44 [SUCCESS] CreateTypespecProject-Generic REST API-emptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:32:45 [INFO] Start-CreateTypespecProject-Generic REST API-notEmptyFolderAndNotAddGitignore
+2025-03-07 16:32:45 [INFO] Description-"The root directory is not empty, do not add ignore files"
+2025-03-07 16:32:45 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:33:13 [INFO] The generated directories and files are as follows:
+2025-03-07 16:33:13 [FILE] ├─── main.tsp
+2025-03-07 16:33:13 [FILE] ├─── node_modules
+2025-03-07 16:33:13 [FILE] ├─── package-lock.json
+2025-03-07 16:33:13 [FILE] ├─── package.json
+2025-03-07 16:33:13 [FILE] ├─── testDirectory
+2025-03-07 16:33:13 [FILE] └─── tspconfig.yaml
+2025-03-07 16:33:13 [SUCCESS] CreateTypespecProject-Generic REST API-notEmptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:33:15 [INFO] Start-CreateTypespecProject-Generic REST API-notEmptyFolderAndAddGitignore
+2025-03-07 16:33:15 [INFO] Description-"The root directory is not empty, add ignore files"
+2025-03-07 16:33:15 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:33:53 [INFO] The generated directories and files are as follows:
+2025-03-07 16:33:53 [FILE] ├─── .gitignore
+2025-03-07 16:33:53 [FILE] ├─── main.tsp
+2025-03-07 16:33:53 [FILE] ├─── node_modules
+2025-03-07 16:33:53 [FILE] ├─── package-lock.json
+2025-03-07 16:33:53 [FILE] ├─── package.json
+2025-03-07 16:33:53 [FILE] ├─── testDirectory
+2025-03-07 16:33:53 [FILE] └─── tspconfig.yaml
+2025-03-07 16:33:53 [SUCCESS] CreateTypespecProject-Generic REST API-notEmptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:34:11 [INFO] Start-CreateTypespecProject-TypeSpec Library-emptyFolderAndAddGitignore
+2025-03-07 16:34:11 [INFO] Description-"The root directory is empty, add ignore files"
+2025-03-07 16:34:11 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:34:45 [INFO] The generated directories and files are as follows:
+2025-03-07 16:34:45 [FILE] ├─── .gitignore
+2025-03-07 16:34:45 [FILE] ├─── eslint.config.js
+2025-03-07 16:34:45 [FILE] ├─── lib
+2025-03-07 16:34:45 [FILE] ├─── node_modules
+2025-03-07 16:34:45 [FILE] ├─── package-lock.json
+2025-03-07 16:34:45 [FILE] ├─── package.json
+2025-03-07 16:34:45 [FILE] ├─── prettierrc.yaml
+2025-03-07 16:34:45 [FILE] ├─── src
+2025-03-07 16:34:45 [FILE] ├─── test
+2025-03-07 16:34:45 [FILE] └─── tsconfig.json
+2025-03-07 16:34:45 [SUCCESS] CreateTypespecProject-TypeSpec Library-emptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:35:33 [INFO] Start-CreateTypespecProject-TypeSpec Library-emptyFolderAndNotAddGitignore
+2025-03-07 16:35:33 [INFO] Description-"The root directory is empty, do not add ignore files"
+2025-03-07 16:35:33 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:35:59 [INFO] The generated directories and files are as follows:
+2025-03-07 16:35:59 [FILE] ├─── eslint.config.js
+2025-03-07 16:35:59 [FILE] ├─── lib
+2025-03-07 16:35:59 [FILE] ├─── node_modules
+2025-03-07 16:35:59 [FILE] ├─── package-lock.json
+2025-03-07 16:35:59 [FILE] ├─── package.json
+2025-03-07 16:35:59 [FILE] ├─── prettierrc.yaml
+2025-03-07 16:35:59 [FILE] ├─── src
+2025-03-07 16:35:59 [FILE] ├─── test
+2025-03-07 16:35:59 [FILE] └─── tsconfig.json
+2025-03-07 16:35:59 [SUCCESS] CreateTypespecProject-TypeSpec Library-emptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:36:01 [INFO] Start-CreateTypespecProject-TypeSpec Emitter-emptyFolderAndAddGitignore
+2025-03-07 16:36:01 [INFO] Description-"The root directory is empty, add ignore files"
+2025-03-07 16:36:01 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:36:27 [INFO] The generated directories and files are as follows:
+2025-03-07 16:36:27 [FILE] ├─── .gitignore
+2025-03-07 16:36:27 [FILE] ├─── eslint.config.js
+2025-03-07 16:36:27 [FILE] ├─── node_modules
+2025-03-07 16:36:27 [FILE] ├─── package-lock.json
+2025-03-07 16:36:27 [FILE] ├─── package.json
+2025-03-07 16:36:27 [FILE] ├─── prettierrc.yaml
+2025-03-07 16:36:27 [FILE] ├─── src
+2025-03-07 16:36:27 [FILE] ├─── test
+2025-03-07 16:36:27 [FILE] └─── tsconfig.json
+2025-03-07 16:36:27 [SUCCESS] CreateTypespecProject-TypeSpec Emitter-emptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:36:29 [INFO] Start-CreateTypespecProject-TypeSpec Emitter-notEmptyFolderAndNotAddGitignore
+2025-03-07 16:36:29 [INFO] Description-"The root directory is not empty, do not add ignore files"
+2025-03-07 16:36:29 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:36:57 [INFO] The generated directories and files are as follows:
+2025-03-07 16:36:57 [FILE] ├─── eslint.config.js
+2025-03-07 16:36:57 [FILE] ├─── node_modules
+2025-03-07 16:36:57 [FILE] ├─── package-lock.json
+2025-03-07 16:36:57 [FILE] ├─── package.json
+2025-03-07 16:36:57 [FILE] ├─── prettierrc.yaml
+2025-03-07 16:36:57 [FILE] ├─── src
+2025-03-07 16:36:57 [FILE] ├─── test
+2025-03-07 16:36:57 [FILE] ├─── testDirectory
+2025-03-07 16:36:57 [FILE] └─── tsconfig.json
+2025-03-07 16:36:57 [SUCCESS] CreateTypespecProject-TypeSpec Emitter-notEmptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:36:59 [INFO] Start-CreateTypespecProject-TypeSpec Emitter-notEmptyFolderAndAddGitignore
+2025-03-07 16:36:59 [INFO] Description-"The root directory is not empty, add ignore files"
+2025-03-07 16:36:59 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:37:25 [INFO] The generated directories and files are as follows:
+2025-03-07 16:37:25 [FILE] ├─── .gitignore
+2025-03-07 16:37:25 [FILE] ├─── eslint.config.js
+2025-03-07 16:37:25 [FILE] ├─── node_modules
+2025-03-07 16:37:25 [FILE] ├─── package-lock.json
+2025-03-07 16:37:25 [FILE] ├─── package.json
+2025-03-07 16:37:25 [FILE] ├─── prettierrc.yaml
+2025-03-07 16:37:25 [FILE] ├─── src
+2025-03-07 16:37:25 [FILE] ├─── test
+2025-03-07 16:37:25 [FILE] ├─── testDirectory
+2025-03-07 16:37:25 [FILE] └─── tsconfig.json
+2025-03-07 16:37:25 [SUCCESS] CreateTypespecProject-TypeSpec Emitter-notEmptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:37:28 [INFO] Start-CreateTypespecProject-TypeSpec Emitter-emptyFolderAndNotAddGitignore
+2025-03-07 16:37:28 [INFO] Description-"The root directory is empty, do not add ignore files"
+2025-03-07 16:37:28 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:37:54 [INFO] The generated directories and files are as follows:
+2025-03-07 16:37:54 [FILE] ├─── eslint.config.js
+2025-03-07 16:37:54 [FILE] ├─── node_modules
+2025-03-07 16:37:54 [FILE] ├─── package-lock.json
+2025-03-07 16:37:54 [FILE] ├─── package.json
+2025-03-07 16:37:54 [FILE] ├─── prettierrc.yaml
+2025-03-07 16:37:54 [FILE] ├─── src
+2025-03-07 16:37:54 [FILE] ├─── test
+2025-03-07 16:37:54 [FILE] └─── tsconfig.json
+2025-03-07 16:37:54 [SUCCESS] CreateTypespecProject-TypeSpec Emitter-emptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:37:56 [INFO] Start-CreateTypespecProject-(rest-api-spec repo) Azure Data Plane Service Project-emptyFolderAndAddGitignore
+2025-03-07 16:37:56 [INFO] Description-"The root directory is empty, add ignore files"
+2025-03-07 16:37:56 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:38:19 [INFO] The generated directories and files are as follows:
+2025-03-07 16:38:19 [FILE] ├─── .gitignore
+2025-03-07 16:38:19 [FILE] ├─── client.tsp
+2025-03-07 16:38:19 [FILE] ├─── examples
+2025-03-07 16:38:19 [FILE] ├─── main.tsp
+2025-03-07 16:38:19 [FILE] └─── tspconfig.yaml
+2025-03-07 16:38:19 [SUCCESS] CreateTypespecProject-(rest-api-spec repo) Azure Data Plane Service Project-emptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:38:19 [INFO] Start-CreateTypespecProject-(rest-api-spec repo) Azure Data Plane Service Project-notEmptyFolderAndNotAddGitignore
+2025-03-07 16:38:19 [INFO] Description-"The root directory is not empty, do not add ignore files"
+2025-03-07 16:38:19 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:38:41 [INFO] The generated directories and files are as follows:
+2025-03-07 16:38:41 [FILE] ├─── client.tsp
+2025-03-07 16:38:41 [FILE] ├─── examples
+2025-03-07 16:38:41 [FILE] ├─── main.tsp
+2025-03-07 16:38:41 [FILE] ├─── testDirectory
+2025-03-07 16:38:41 [FILE] └─── tspconfig.yaml
+2025-03-07 16:38:41 [SUCCESS] CreateTypespecProject-(rest-api-spec repo) Azure Data Plane Service Project-notEmptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:38:41 [INFO] Start-CreateTypespecProject-(rest-api-spec repo) Azure Data Plane Service Project-notEmptyFolderAndAddGitignore
+2025-03-07 16:38:41 [INFO] Description-"The root directory is not empty, add ignore files"
+2025-03-07 16:38:42 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:39:04 [INFO] The generated directories and files are as follows:
+2025-03-07 16:39:04 [FILE] ├─── .gitignore
+2025-03-07 16:39:04 [FILE] ├─── client.tsp
+2025-03-07 16:39:04 [FILE] ├─── examples
+2025-03-07 16:39:04 [FILE] ├─── main.tsp
+2025-03-07 16:39:04 [FILE] ├─── testDirectory
+2025-03-07 16:39:04 [FILE] └─── tspconfig.yaml
+2025-03-07 16:39:04 [SUCCESS] CreateTypespecProject-(rest-api-spec repo) Azure Data Plane Service Project-notEmptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:39:04 [INFO] Start-CreateTypespecProject-(rest-api-spec repo) Azure Data Plane Service Project-emptyFolderAndNotAddGitignore
+2025-03-07 16:39:04 [INFO] Description-"The root directory is empty, do not add ignore files"
+2025-03-07 16:39:04 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:39:25 [INFO] The generated directories and files are as follows:
+2025-03-07 16:39:25 [FILE] ├─── client.tsp
+2025-03-07 16:39:25 [FILE] ├─── examples
+2025-03-07 16:39:25 [FILE] ├─── main.tsp
+2025-03-07 16:39:25 [FILE] └─── tspconfig.yaml
+2025-03-07 16:39:25 [SUCCESS] CreateTypespecProject-(rest-api-spec repo) Azure Data Plane Service Project-emptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:39:25 [INFO] Start-CreateTypespecProject-(rest-api-spec repo) Azure Resource Manager Service Project-emptyFolderAndAddGitignore
+2025-03-07 16:39:25 [INFO] Description-"The root directory is empty, add ignore files"
+2025-03-07 16:39:25 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:39:47 [INFO] The generated directories and files are as follows:
+2025-03-07 16:39:47 [FILE] ├─── .gitignore
+2025-03-07 16:39:47 [FILE] ├─── employee.tsp
+2025-03-07 16:39:47 [FILE] ├─── examples
+2025-03-07 16:39:47 [FILE] ├─── main.tsp
+2025-03-07 16:39:47 [FILE] └─── tspconfig.yaml
+2025-03-07 16:39:47 [SUCCESS] CreateTypespecProject-(rest-api-spec repo) Azure Resource Manager Service Project-emptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:39:47 [INFO] Start-CreateTypespecProject-(rest-api-spec repo) Azure Resource Manager Service Project-notEmptyFolderAndNotAddGitignore
+2025-03-07 16:39:47 [INFO] Description-"The root directory is not empty, do not add ignore files"
+2025-03-07 16:39:47 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:40:09 [INFO] The generated directories and files are as follows:
+2025-03-07 16:40:09 [FILE] ├─── employee.tsp
+2025-03-07 16:40:09 [FILE] ├─── examples
+2025-03-07 16:40:09 [FILE] ├─── main.tsp
+2025-03-07 16:40:09 [FILE] ├─── testDirectory
+2025-03-07 16:40:09 [FILE] └─── tspconfig.yaml
+2025-03-07 16:40:09 [SUCCESS] CreateTypespecProject-(rest-api-spec repo) Azure Resource Manager Service Project-notEmptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:40:10 [INFO] Start-CreateTypespecProject-(rest-api-spec repo) Azure Resource Manager Service Project-notEmptyFolderAndAddGitignore
+2025-03-07 16:40:10 [INFO] Description-"The root directory is not empty, add ignore files"
+2025-03-07 16:40:10 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:40:33 [INFO] The generated directories and files are as follows:
+2025-03-07 16:40:33 [FILE] ├─── .gitignore
+2025-03-07 16:40:33 [FILE] ├─── employee.tsp
+2025-03-07 16:40:33 [FILE] ├─── examples
+2025-03-07 16:40:33 [FILE] ├─── main.tsp
+2025-03-07 16:40:33 [FILE] ├─── testDirectory
+2025-03-07 16:40:33 [FILE] └─── tspconfig.yaml
+2025-03-07 16:40:33 [SUCCESS] CreateTypespecProject-(rest-api-spec repo) Azure Resource Manager Service Project-notEmptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:40:33 [INFO] Start-CreateTypespecProject-(rest-api-spec repo) Azure Resource Manager Service Project-emptyFolderAndNotAddGitignore
+2025-03-07 16:40:33 [INFO] Description-"The root directory is empty, do not add ignore files"
+2025-03-07 16:40:33 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:40:54 [INFO] The generated directories and files are as follows:
+2025-03-07 16:40:54 [FILE] ├─── employee.tsp
+2025-03-07 16:40:54 [FILE] ├─── examples
+2025-03-07 16:40:54 [FILE] ├─── main.tsp
+2025-03-07 16:40:54 [FILE] └─── tspconfig.yaml
+2025-03-07 16:40:54 [SUCCESS] CreateTypespecProject-(rest-api-spec repo) Azure Resource Manager Service Project-emptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:40:55 [INFO] Start-CreateTypespecProject-(stand alone) Azure Data Plane Service Project-emptyFolderAndAddGitignore
+2025-03-07 16:40:55 [INFO] Description-"The root directory is empty, add ignore files"
+2025-03-07 16:40:55 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:41:57 [INFO] The generated directories and files are as follows:
+2025-03-07 16:41:57 [FILE] ├─── .gitignore
+2025-03-07 16:41:57 [FILE] ├─── client.tsp
+2025-03-07 16:41:57 [FILE] ├─── examples
+2025-03-07 16:41:57 [FILE] ├─── main.tsp
+2025-03-07 16:41:57 [FILE] ├─── node_modules
+2025-03-07 16:41:57 [FILE] ├─── package-lock.json
+2025-03-07 16:41:57 [FILE] ├─── package.json
+2025-03-07 16:41:57 [FILE] └─── tspconfig.yaml
+2025-03-07 16:41:57 [SUCCESS] CreateTypespecProject-(stand alone) Azure Data Plane Service Project-emptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:41:58 [INFO] Start-CreateTypespecProject-(stand alone) Azure Data Plane Service Project-notEmptyFolderAndNotAddGitignore
+2025-03-07 16:41:58 [INFO] Description-"The root directory is not empty, do not add ignore files"
+2025-03-07 16:41:58 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:42:27 [INFO] The generated directories and files are as follows:
+2025-03-07 16:42:27 [FILE] ├─── client.tsp
+2025-03-07 16:42:27 [FILE] ├─── examples
+2025-03-07 16:42:27 [FILE] ├─── main.tsp
+2025-03-07 16:42:27 [FILE] ├─── node_modules
+2025-03-07 16:42:27 [FILE] ├─── package-lock.json
+2025-03-07 16:42:27 [FILE] ├─── package.json
+2025-03-07 16:42:27 [FILE] ├─── testDirectory
+2025-03-07 16:42:27 [FILE] └─── tspconfig.yaml
+2025-03-07 16:42:27 [SUCCESS] CreateTypespecProject-(stand alone) Azure Data Plane Service Project-notEmptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:42:29 [INFO] Start-CreateTypespecProject-(stand alone) Azure Data Plane Service Project-notEmptyFolderAndAddGitignore
+2025-03-07 16:42:29 [INFO] Description-"The root directory is not empty, add ignore files"
+2025-03-07 16:42:29 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:42:58 [INFO] The generated directories and files are as follows:
+2025-03-07 16:42:58 [FILE] ├─── .gitignore
+2025-03-07 16:42:58 [FILE] ├─── client.tsp
+2025-03-07 16:42:58 [FILE] ├─── examples
+2025-03-07 16:42:58 [FILE] ├─── main.tsp
+2025-03-07 16:42:58 [FILE] ├─── node_modules
+2025-03-07 16:42:58 [FILE] ├─── package-lock.json
+2025-03-07 16:42:58 [FILE] ├─── package.json
+2025-03-07 16:42:58 [FILE] ├─── testDirectory
+2025-03-07 16:42:58 [FILE] └─── tspconfig.yaml
+2025-03-07 16:42:58 [SUCCESS] CreateTypespecProject-(stand alone) Azure Data Plane Service Project-notEmptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:42:59 [INFO] Start-CreateTypespecProject-(stand alone) Azure Data Plane Service Project-emptyFolderAndNotAddGitignore
+2025-03-07 16:42:59 [INFO] Description-"The root directory is empty, do not add ignore files"
+2025-03-07 16:42:59 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:43:29 [INFO] The generated directories and files are as follows:
+2025-03-07 16:43:29 [FILE] ├─── client.tsp
+2025-03-07 16:43:29 [FILE] ├─── examples
+2025-03-07 16:43:29 [FILE] ├─── main.tsp
+2025-03-07 16:43:29 [FILE] ├─── node_modules
+2025-03-07 16:43:29 [FILE] ├─── package-lock.json
+2025-03-07 16:43:29 [FILE] ├─── package.json
+2025-03-07 16:43:29 [FILE] └─── tspconfig.yaml
+2025-03-07 16:43:29 [SUCCESS] CreateTypespecProject-(stand alone) Azure Data Plane Service Project-emptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:43:31 [INFO] Start-CreateTypespecProject-(stand alone) Azure Resource Manager Service Project-emptyFolderAndAddGitignore
+2025-03-07 16:43:31 [INFO] Description-"The root directory is empty, add ignore files"
+2025-03-07 16:43:31 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:44:24 [INFO] The generated directories and files are as follows:
+2025-03-07 16:44:24 [FILE] ├─── .gitignore
+2025-03-07 16:44:24 [FILE] ├─── employee.tsp
+2025-03-07 16:44:24 [FILE] ├─── examples
+2025-03-07 16:44:24 [FILE] ├─── main.tsp
+2025-03-07 16:44:24 [FILE] ├─── node_modules
+2025-03-07 16:44:24 [FILE] ├─── package-lock.json
+2025-03-07 16:44:24 [FILE] ├─── package.json
+2025-03-07 16:44:24 [FILE] └─── tspconfig.yaml
+2025-03-07 16:44:24 [SUCCESS] CreateTypespecProject-(stand alone) Azure Resource Manager Service Project-emptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:44:25 [INFO] Start-CreateTypespecProject-(stand alone) Azure Resource Manager Service Project-notEmptyFolderAndNotAddGitignore
+2025-03-07 16:44:25 [INFO] Description-"The root directory is not empty, do not add ignore files"
+2025-03-07 16:44:25 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:44:56 [INFO] The generated directories and files are as follows:
+2025-03-07 16:44:56 [FILE] ├─── employee.tsp
+2025-03-07 16:44:56 [FILE] ├─── examples
+2025-03-07 16:44:56 [FILE] ├─── main.tsp
+2025-03-07 16:44:56 [FILE] ├─── node_modules
+2025-03-07 16:44:56 [FILE] ├─── package-lock.json
+2025-03-07 16:44:56 [FILE] ├─── package.json
+2025-03-07 16:44:56 [FILE] ├─── testDirectory
+2025-03-07 16:44:56 [FILE] └─── tspconfig.yaml
+2025-03-07 16:44:56 [SUCCESS] CreateTypespecProject-(stand alone) Azure Resource Manager Service Project-notEmptyFolderAndNotAddGitignore: Success
+
+
+2025-03-07 16:44:58 [INFO] Start-CreateTypespecProject-(stand alone) Azure Resource Manager Service Project-notEmptyFolderAndAddGitignore
+2025-03-07 16:44:58 [INFO] Description-"The root directory is not empty, add ignore files"
+2025-03-07 16:44:58 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:45:27 [INFO] The generated directories and files are as follows:
+2025-03-07 16:45:27 [FILE] ├─── .gitignore
+2025-03-07 16:45:27 [FILE] ├─── employee.tsp
+2025-03-07 16:45:27 [FILE] ├─── examples
+2025-03-07 16:45:27 [FILE] ├─── main.tsp
+2025-03-07 16:45:27 [FILE] ├─── node_modules
+2025-03-07 16:45:27 [FILE] ├─── package-lock.json
+2025-03-07 16:45:27 [FILE] ├─── package.json
+2025-03-07 16:45:27 [FILE] ├─── testDirectory
+2025-03-07 16:45:27 [FILE] └─── tspconfig.yaml
+2025-03-07 16:45:27 [SUCCESS] CreateTypespecProject-(stand alone) Azure Resource Manager Service Project-notEmptyFolderAndAddGitignore: Success
+
+
+2025-03-07 16:45:28 [INFO] Start-CreateTypespecProject-(stand alone) Azure Resource Manager Service Project-emptyFolderAndNotAddGitignore
+2025-03-07 16:45:28 [INFO] Description-"The root directory is empty, do not add ignore files"
+2025-03-07 16:45:28 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:45:56 [INFO] The generated directories and files are as follows:
+2025-03-07 16:45:56 [FILE] ├─── employee.tsp
+2025-03-07 16:45:56 [FILE] ├─── examples
+2025-03-07 16:45:56 [FILE] ├─── main.tsp
+2025-03-07 16:45:56 [FILE] ├─── node_modules
+2025-03-07 16:45:56 [FILE] ├─── package-lock.json
+2025-03-07 16:45:56 [FILE] ├─── package.json
+2025-03-07 16:45:56 [FILE] └─── tspconfig.yaml
+2025-03-07 16:45:56 [SUCCESS] CreateTypespecProject-(stand alone) Azure Resource Manager Service Project-emptyFolderAndNotAddGitignore: Success
+====================================================================
+
+====================================================================
+Failed  Cases:
+
+2025-03-07 16:33:54 [INFO] Start-CreateTypespecProject-Generic REST API-emptyFolderAndNotAddGitignore
+2025-03-07 16:33:54 [INFO] Description-"The root directory is empty, do not add ignore files"
+2025-03-07 16:33:54 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:34:11 [ERROR] Failed to open the command palette
+2025-03-07 16:34:11 [ERROR] View error pictures for more details: Create_Typespec_Project_SEARCH_2025_03_07_16_34_11.png
+2025-03-07 16:34:11 [ERROR] CreateTypespecProject-Generic REST API-emptyFolderAndNotAddGitignore: Failed
+
+
+2025-03-07 16:34:46 [INFO] Start-CreateTypespecProject-TypeSpec Library-notEmptyFolderAndNotAddGitignore
+2025-03-07 16:34:46 [INFO] Description-"The root directory is not empty, do not add ignore files"
+2025-03-07 16:34:46 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:35:08 [ERROR] Failed to select a folder
+2025-03-07 16:35:08 [ERROR] View error pictures for more details: Create_Typespec_Project_FOLDER_2025_03_07_16_35_08.png
+2025-03-07 16:35:08 [ERROR] CreateTypespecProject-TypeSpec Library-notEmptyFolderAndNotAddGitignore: Failed
+
+
+2025-03-07 16:35:08 [INFO] Start-CreateTypespecProject-TypeSpec Library-notEmptyFolderAndAddGitignore
+2025-03-07 16:35:08 [INFO] Description-"The root directory is not empty, add ignore files"
+2025-03-07 16:35:08 [INFO] Creating a new TypeSpec project...
+2025-03-07 16:35:33 [ERROR] Failed to select a template
+2025-03-07 16:35:33 [ERROR] View error pictures for more details: Create_Typespec_Project_TEMPLATE_2025_03_07_16_35_33.png
+2025-03-07 16:35:33 [ERROR] CreateTypespecProject-TypeSpec Library-notEmptyFolderAndAddGitignore: Failed
+====================================================================
+
