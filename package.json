@@ -3,7 +3,7 @@
   "name": "typespec-automation",
   "displayName": "typespec automation",
   "description": "TypeSpec Project Automation",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.97.0"
   },
@@ -11,8 +11,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:typespec-automation.helloWorld"
+    "onCommand:typespec-automation.Create-1",
+    "onCommand:typespec-automation.Create-2",
+    "onCommand:typespec-automation.Create-All"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yionse/VscodeExtensionAutomation.git"
+  },
   "main": "./extension.js",
   "contributes": {
     "commands": [],
@@ -38,10 +44,6 @@
         {
           "id": "import-typespec-from-openapi3-test",
           "name": "import-typespec-from-openapi3-test"
-        },
-        {
-          "id": "typespec-extension-basic-features-test",
-          "name": "typespec-extension-basic-features-test"
         }
       ]
     }
@@ -49,7 +51,8 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "yarn run lint",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "build": "vsce package"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",

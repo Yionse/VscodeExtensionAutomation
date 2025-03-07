@@ -1,7 +1,7 @@
+const { logger } = require("./log")
 const { getScriptRoot } = require("./getScriptRoot")
 const vscode = require("vscode")
 const { execSync } = require("child_process")
-const { outputChannelSys } = require("./message")
 
 function showCurrentDirectoryList() {
   const scriptPath = getScriptRoot("getRootDirectoryFileList.js")
@@ -13,10 +13,9 @@ function showCurrentDirectoryList() {
     if (stdout) {
       const arr = JSON.parse(stdout)
       arr.forEach((item, index) =>
-        outputChannelSys({
+        logger.log({
           type: "file",
-          msg: (index + 1 === arr.length ? "└─── " : "├─── ") + item.file,
-          tab: true
+          msg: (index + 1 === arr.length ? "└─── " : "├─── ") + item.file
         })
       )
     }

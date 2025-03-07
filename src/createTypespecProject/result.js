@@ -1,6 +1,6 @@
+const { logger } = require("../common/log")
 const { templateList } = require("./config")
 const { getCurrentDirectoryList } = require("../common/getCurrentDirectoryList")
-const { outputChannelSys } = require("../common/message")
 const { node_modulesInstalled } = require("./pre")
 const {
   showCurrentDirectoryList
@@ -8,7 +8,7 @@ const {
 
 const createTypespecResult = async ({ isAddGitignore, name, template }) => {
   await node_modulesInstalled(!template.includes("(rest-api-spec repo)"))
-  outputChannelSys({
+  logger.log({
     msg: "The generated directories and files are as follows:"
   })
   showCurrentDirectoryList()
@@ -29,7 +29,7 @@ const createTypespecResult = async ({ isAddGitignore, name, template }) => {
         item.file !== "testDirectory"
     )
     if (currentDirectoryList.length === expectedResults.length) {
-      outputChannelSys({
+      logger.log({
         type: "success",
         msg: `${name}: Success\n`
       })

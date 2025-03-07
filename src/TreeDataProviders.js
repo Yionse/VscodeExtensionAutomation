@@ -28,8 +28,8 @@ class CreateTypespecProject extends BaseTreeProvider {
   constructor() {
     super([
       new MyTreeItem("Create-non-branded-templates", "Create-1"),
-      new MyTreeItem("Create-azure-data/Mgmt-templates", "Create-2"),
-      new MyTreeItem("Create-all", "Create-All")
+      new MyTreeItem("Create-azure-data/mgmt-templates", "Create-2"),
+      new MyTreeItem("Create-typespec-project", "Create-All")
     ])
   }
 }
@@ -52,18 +52,8 @@ class ImportTypespecFromOpenai3 extends BaseTreeProvider {
   }
 }
 
-class TypespecExtensionBasicFeatures extends BaseTreeProvider {
-  constructor() {
-    super([
-      new MyTreeItem("TestCase-1", "Feature-1"),
-      new MyTreeItem("TestCase-2", "Feature-2")
-    ])
-  }
-}
-
 module.exports = {
   CreateTypespecProject,
   GenerateFromTypespec,
-  ImportTypespecFromOpenai3,
-  TypespecExtensionBasicFeatures
+  ImportTypespecFromOpenai3
 }

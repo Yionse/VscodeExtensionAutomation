@@ -1,7 +1,8 @@
+const { sleep } = require("../common/timer")
+const { logger } = require("../common/log")
 const { selectItem } = require("../common/selectItem")
 const { expectText } = require("../common/expectText")
 const { exceptTextErrorList } = require("./exceptList")
-const { outputChannelSys } = require("../common/message")
 const { createDir } = require("../common/createDir")
 const vscode = require("vscode")
 const { keyboard, Key } = require("@nut-tree/nut-js")
@@ -28,10 +29,10 @@ const specialStepsAzure = async (template) => {
 
 // Trigger create TypeSpec Project
 const triggerCreateProject = async ({ name, description, isEmptyFolder }) => {
-  outputChannelSys({
+  logger.log({
     msg: `Start-${name}`
   })
-  outputChannelSys({
+  logger.log({
     msg: `Description-${JSON.stringify(description)}`
   })
 
@@ -39,12 +40,10 @@ const triggerCreateProject = async ({ name, description, isEmptyFolder }) => {
     createDir("testDirectory")
   }
 
-  outputChannelSys({
+  logger.log({
     msg: "Creating a new TypeSpec project..."
   })
-  const res = vscode.commands.executeCommand("workbench.action.quickOpen")
-  console.log("The return value after vscode api call is", res)
-
+  vscode.commands.executeCommand("workbench.action.quickOpen")
   await expectText(exceptTextErrorList.search)
 
   vscode.env.clipboard

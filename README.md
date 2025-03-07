@@ -2,8 +2,9 @@
 
 ## Description
 
-This project is a vscode plug-in project based on JavaScript. It must be run by vscode. During the plug-in running process, **it must get the focus throughout the process**. Then the plug-in will automatically perform a series of automated operations and generate a log file.
-For information about manual testing, please refer to [https://github.com/xiaohua899/typespec/tree/patch-1/packages/typespec-vscode/test/manual](https://github.com/xiaohua899/typespec/tree/patch-1/packages/typespec-vscode/test/manual).
+- This project is a vscode plug-in project based on JavaScript. It must be run by vscode. During the plug-in running process, **it must get the focus throughout the process, and the mouse also needs to be on the focused window**. Then the plug-in will automatically perform a series of automated operations and generate a log file.
+- For information about manual testing, please refer to [here](https://github.com/xiaohua899/typespec/tree/patch-1/packages/typespec-vscode/test/manual).
+- **If want to use the latest plugin, click [here](typespec-automation-1.0.0.vsix).** Then install it manually in `vscode`.
 
 ## Prerequisites
 
@@ -44,12 +45,12 @@ The project entry file is `extension.js`, which is the entry file of the entire 
    ```
 
 3. Press `F5` to run the plugin and wait for the plugin to start a new vscode window.
-4. In the new window, click the `tab` bar on the left and select `typespec auto`. Then click the required `item` to perform automated testing.
-   ![](readme.png)
+4. In the new window, **first select an empty file as the root directory**, click the `tab` bar on the left and select `typespec auto`. Then click the required `item` to perform automated testing.
+   ![](./readme.png)
 
 ## Log
 
-The current log is automatically generated. Each time the automation program is run, it will be automatically saved in the local `D:\typespecAutomationLogs`.
+The current log is automatically generated. Each time the automation program is run, it will be automatically saved in the local `D:\typespecAutomationLogs`. To view the `log example`, click [here](./sampleLog.txt).
 
 ## Contributing
 

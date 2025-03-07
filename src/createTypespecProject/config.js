@@ -69,7 +69,7 @@ const templateList = [
 ]
 const configArrayList = [
   {
-    name: "CreateTypespecProject",
+    caseName: "emptyFolderAndAddGitignore",
     config: {
       emptyFolder: true,
       addGitignore: true
@@ -77,7 +77,7 @@ const configArrayList = [
     description: "The root directory is empty, add ignore files"
   },
   {
-    name: "CreateTypespecProject",
+    caseName: "notEmptyFolderAndNotAddGitignore",
     config: {
       emptyFolder: false,
       addGitignore: false
@@ -85,7 +85,7 @@ const configArrayList = [
     description: "The root directory is not empty, do not add ignore files"
   },
   {
-    name: "CreateTypespecProject",
+    caseName: "notEmptyFolderAndAddGitignore",
     config: {
       emptyFolder: false,
       addGitignore: true
@@ -93,7 +93,7 @@ const configArrayList = [
     description: "The root directory is not empty, add ignore files"
   },
   {
-    name: "CreateTypespecProject",
+    caseName: "emptyFolderAndNotAddGitignore",
     config: {
       emptyFolder: true,
       addGitignore: false
